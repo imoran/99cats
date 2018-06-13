@@ -13,10 +13,10 @@
   </tr>
   <tr>
     <th>Birthdate</th>
-    <td><%= @cat.birth_date %></td>
+    <td><%= @cat.birth_date.strftime('%x') %></td>
   </tr>
   <tr>
     <th>Description</th>
-    <td><%= @cat.description.strftime('%x') %></td>
+    <td><%= @cat.description %></td>
   </tr>
 </table>
