@@ -1,0 +1,27 @@
+<form action="/cats" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  <label>Name
+    <input type="text" name="cat[name]" value="<%= @cat.name %>">
+  </label>
+  <br />
+  <label>Birthdate
+    <input type="date" name="cat[birth_date]" value="<%= @cat.birth_date %>">
+  </label>
+  <br />
+  <label>Sex
+    <input type="text" name="cat[sex]" value="<%= @cat.sex %>">
+  </label>
+  <br />
+  <label>Color
+    <select name="cat[color]" value="<%= @cat.color %>">
+      <% @cat.colors.each do |color| %>
+        <option value="<%= color %>"><%= color %></option>
+      <% end %>
+    </select>
+  </label>
+  <br />
+  <label>Description
+    <input type="text" name="cat[description]" value="<%= @cat.description %>">
+  </label>
+  <input type="submit" name="" value="Create New Cat">
+</form>
