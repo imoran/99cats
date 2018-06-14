@@ -1,0 +1,51 @@
+<form action="/cats" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+  <label>Name
+    <input type="text" name="cat[name]" value="<%= @cat.name %>">
+  </label>
+  <br />
+  <label>Birthdate
+    <input type="date" name="cat[birth_date]" value="<%= @cat.birth_date %>">
+  </label>
+  <br />
+  <label>Sex
+    <br>
+    <input
+      type="radio"
+      name="cat[sex]"
+      value="M"
+      <%= @cat.sex == "M" ? "checked" : "" %>> Male
+    <br>
+    <input
+      type="radio"
+      name="cat[sex]"
+      value="F"
+      <%= @cat.sex == "F" ? "checked" : "" =%>> Female
+
+  </label>
+  <br />
+  <label>Color
+    <select name="cat[color]" value="<%= @cat.color %>">
+      <% @cat.colors.each do |color| %>
+        <% if color == @cat.color %>
+          <option value="<%= color %>" selected>
+            <%= color %>
+          </option>
+        <% end %>
+        <option value="<%= color %>">
+          <%= color %>
+        </option>
+      <% end %>
+    </select>
+  </label>
+  <br />
+  <label>Description
+    <br>
+    <textarea name="cat[description]" rows="8" cols="80" value="<%= @cat.description %>"><%= @cat.description %></textarea>
+  </label>
+  <br />
+  <input type="submit" name="" value="Edit Cat">
+</form>
+<br>
+<%= link_to 'See all cats', cats_url %>

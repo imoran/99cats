@@ -9,11 +9,15 @@
   </label>
   <br />
   <label>Sex
-    <input type="text" name="cat[sex]" value="<%= @cat.sex %>">
+    <br>
+    <input type="radio" name="cat[sex]" value="M"> Male
+    <br>
+    <input type="radio" name="cat[sex]" value="F"> Female
   </label>
   <br />
   <label>Color
     <select name="cat[color]" value="<%= @cat.color %>">
+      <option>-- select a color --</option>
       <% @cat.colors.each do |color| %>
         <option value="<%= color %>"><%= color %></option>
       <% end %>
@@ -21,7 +25,9 @@
   </label>
   <br />
   <label>Description
-    <input type="text" name="cat[description]" value="<%= @cat.description %>">
+    <br>
+    <textarea name="cat[description]" rows="8" cols="80" value="<%= @cat.description %>"></textarea>
   </label>
+  <br />
   <input type="submit" name="" value="Create New Cat">
 </form>
